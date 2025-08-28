@@ -29,45 +29,84 @@ e107 Bootstrap CMS es un sistema de gestión de contenidos potente y flexible qu
 
 ## 📁 Estructura Básica de un Plugin
 
-Basado en el análisis del plugin `_blank` y otros plugins del sistema, aquí tienes la estructura completa que debe seguir todo plugin de e107:
+Basado en el análisis completo del plugin `_blank` (plantilla oficial de e107), aquí tienes la estructura detallada que debe seguir todo plugin profesional:
+
+### 🗂️ Estructura Completa del Plugin _blank
 
 ```
-mi_plugin/
-├── 📄 plugin.xml                    # Configuración principal del plugin
-├── 📄 mi_plugin.php                 # Archivo principal del frontend
-├── 📄 mi_plugin_setup.php           # Rutinas de instalación/desinstalación
-├── 📄 mi_plugin_sql.php             # Definición de tablas de base de datos
-├── 📄 admin_config.php              # Panel de administración
-├── 📄 e_shortcode.php               # Shortcodes personalizados
-├── 📄 e_menu.php                    # Configuración de menús
-├── 📄 e_event.php                   # Manejo de eventos del sistema
-├── 📄 e_admin.php                   # Extensiones del panel de administración
-├── 📄 e_search.php                  # Integración con el buscador
-├── 📄 e_url.php                     # URLs amigables
-├── 📄 e_header.php                  # Modificaciones del header
-├── 📄 e_parse.php                   # Parsers personalizados
-├── 📄 e_user.php                    # Extensiones de usuario
-├── 📁 templates/                    # Plantillas HTML
-│   └── mi_plugin_template.php
-├── 📁 languages/                    # Archivos de idioma
+e107_plugins/_blank/
+├── 📄 plugin.xml                    # ⚙️ Configuración principal del plugin
+├── 📄 _blank.php                    # 🏠 Archivo principal (frontend)
+├── 📄 _blank_setup.php              # 🔧 Instalación/desinstalación/actualización
+├── 📄 _blank_sql.php                # 🗄️ Estructura de base de datos
+├── 📄 _blank_menu.php               # 📋 Configuración de menús específicos
+├── 📄 _blank_shortcodes.php         # 🔗 Shortcodes del plugin (legacy)
+├── 📄 admin_config.php              # 🎛️ Panel de administración principal
+├── 📄 e_admin.php                   # 🔌 Extensiones de administración
+├── 📄 e_cron.php                    # ⏰ Tareas programadas
+├── 📄 e_dashboard.php               # 📊 Widget del dashboard
+├── 📄 e_event.php                   # 🎯 Manejo de eventos del sistema
+├── 📄 e_frontpage.php               # 🏡 Contenido de página principal
+├── 📄 e_header.php                  # 📄 Modificaciones del header
+├── 📄 e_library.php                 # 📚 Librerías y funciones auxiliares
+├── 📄 e_menu.php                    # 📋 Configuración de menús (v2.x)
+├── 📄 e_notify.php                  # 📧 Sistema de notificaciones
+├── 📄 e_parse.php                   # 🔄 Parseo personalizado
+├── 📄 e_print.php                   # 🖨️ Versión para imprimir
+├── 📄 e_related.php                 # 🔗 Contenido relacionado
+├── 📄 e_rss.php                     # 📡 Feeds RSS
+├── 📄 e_search.php                  # 🔍 Integración con búsqueda
+├── 📄 e_shortcode.php               # 🔗 Shortcodes personalizados (v2.x)
+├── 📄 e_sitelink.php                # 🌐 Enlaces del sitio
+├── 📄 e_url.php                     # 🔗 URLs amigables
+├── 📄 e_user.php                    # 👤 Extensiones de usuario
+├── 📁 css/
+│   └── blank.css                    # 🎨 Estilos del plugin
+├── 📁 images/
+│   ├── blank_16.png                 # 🖼️ Icono 16x16
+│   ├── blank_32.png                 # 🖼️ Icono 32x32
+│   ├── icon_128.png                 # 🖼️ Icono 128x128
+│   ├── icon_16.png                  # 🖼️ Icono alternativo 16x16
+│   └── icon_32.png                  # 🖼️ Icono alternativo 32x32
+├── 📁 languages/
 │   ├── English/
-│   │   ├── English_global.php
-│   │   └── English_admin.php
+│   │   └── English_global.php       # 🌍 Idioma inglés
 │   └── Portuguese/
-│       ├── Portuguese_global.php
-│       └── Portuguese_admin.php
-├── 📁 css/                          # Hojas de estilo
-│   └── mi_plugin.css
-├── 📁 js/                           # JavaScript
-│   └── mi_plugin.js
-├── 📁 images/                       # Iconos y recursos gráficos
-│   ├── mi_plugin_16.png
-│   ├── mi_plugin_32.png
-│   └── icon_128.png
-└── 📁 tests/                        # Tests unitarios (opcional)
+│       └── Portuguese_global.php    # 🌍 Idioma portugués
+├── 📁 templates/
+│   └── _blank_template.php          # 📄 Plantillas del plugin
+└── 📁 tests/
     └── unit/
-        └── mi_plugin_test.php
+        └── _blank_eventTest.php     # 🧪 Pruebas unitarias
 ```
+
+### 📋 Categorización de Archivos
+
+#### 🏠 Archivos Principales
+- **plugin.xml** - Configuración principal del plugin
+- **_blank.php** - Frontend del plugin (lógica principal)
+- **_blank_setup.php** - Instalación, actualización y desinstalación
+- **_blank_sql.php** - Estructura de base de datos
+- **admin_config.php** - Panel de administración
+
+#### 🔌 Archivos de Extensión (e_*.php)
+- **e_admin.php** - Extensiones de administración
+- **e_shortcode.php** - Shortcodes globales (v2.x)
+- **e_menu.php** - Configuración de menús
+- **e_cron.php** - Tareas programadas
+- **e_dashboard.php** - Widget del dashboard
+- **e_event.php** - Manejo de eventos del sistema
+- **e_search.php** - Integración con búsqueda
+- **e_url.php** - URLs amigables SEO
+- **e_rss.php** - Feeds RSS
+- **e_notify.php** - Sistema de notificaciones
+
+#### 📁 Recursos y Assets
+- **css/blank.css** - Estilos del plugin
+- **images/*.png** - Iconos en múltiples tamaños
+- **languages/** - Archivos de idioma (multiidioma)
+- **templates/** - Plantillas HTML del plugin
+- **tests/** - Pruebas unitarias (opcional pero recomendado)
 
 ### 🔍 Descripción de Elementos
 
@@ -81,6 +120,282 @@ mi_plugin/
 | `templates/` | ⚠️ | Plantillas HTML (recomendado) |
 | `languages/` | ⚠️ | Archivos de idioma (recomendado) |
 | `css/`, `js/`, `images/` | ❌ | Recursos estáticos (según necesidad) |
+
+---
+
+## 🔍 Análisis Detallado de Archivos del Plugin _blank
+
+### 📄 plugin.xml - Configuración Principal
+**Función:** Define todos los metadatos, configuraciones y dependencias del plugin.
+
+**Estructura Básica:**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="_blank" lan="LAN_PLUGIN__BLANK_NAME" version="1.0" date="2024-01-01" compatibility="2.0" installRequired="true">
+    <author name="e107 Inc" url="https://e107.org" email="admin@e107.org" />
+    <summary lan="LAN_PLUGIN__BLANK_DIZ">Plugin de ejemplo para desarrollo</summary>
+    <description lan="LAN_PLUGIN__BLANK_DIZ">Plantilla base para crear nuevos plugins</description>
+    <category>misc</category>
+    <keywords>
+        <word>blank</word>
+        <word>template</word>
+        <word>example</word>
+    </keywords>
+    <copyright>Copyright (c) e107 Inc</copyright>
+    <adminLinks>
+        <link url="admin_config.php" description="Configuración" icon="images/blank_32.png" iconSmall="images/blank_16.png" primary="true" />
+    </adminLinks>
+    <siteLinks>
+        <link url="blank.php" description="Ver Plugin" icon="images/blank_16.png" />
+    </siteLinks>
+    <pluginPrefs>
+        <pref name="blank_setting1">default_value</pref>
+        <pref name="blank_setting2">another_value</pref>
+    </pluginPrefs>
+    <userClasses>
+        <class name="blank_access" description="Acceso al plugin blank" />
+    </userClasses>
+    <extendedFields>
+        <field name="blank_field" type="text" />
+    </extendedFields>
+</e107Plugin>
+```
+
+### 🏠 _blank.php - Frontend Principal
+**Función:** Contiene la lógica principal del plugin para el frontend.
+
+**Estructura Básica:**
+```php
+<?php
+if (!defined('e107_INIT')) { exit; }
+
+class _blank_front
+{
+    function __construct()
+    {
+        // Cargar recursos necesarios
+        e107::js('_blank', 'js/blank.js');
+        e107::css('_blank', 'css/blank.css');
+        e107::lan('_blank', 'English_global');
+    }
+    
+    function run()
+    {
+        // Lógica principal del plugin
+        $tp = e107::getParser();
+        $sql = e107::getDb();
+        
+        // Ejemplo de consulta a base de datos
+        if($sql->select('blank', '*', 'ORDER BY blank_id DESC LIMIT 10'))
+        {
+            while($row = $sql->fetch())
+            {
+                // Procesar datos
+                $data[] = $row;
+            }
+        }
+        
+        // Renderizar template
+        $template = e107::getTemplate('_blank');
+        $sc = e107::getScBatch('_blank');
+        
+        return $tp->parseTemplate($template['MAIN'], true, $sc);
+    }
+}
+
+// Inicializar plugin
+$_blank = new _blank_front();
+echo $_blank->run();
+?>
+```
+
+### 🔧 _blank_setup.php - Instalación y Configuración
+**Función:** Maneja la instalación, actualización y desinstalación del plugin.
+
+**Métodos Principales:**
+- `install_pre()` - Ejecutado antes de crear tablas
+- `install_post()` - Ejecutado después de crear tablas
+- `upgrade()` - Maneja actualizaciones
+- `uninstall()` - Limpieza al desinstalar
+
+**Ejemplo de Implementación:**
+```php
+<?php
+if (!defined('e107_INIT')) { exit; }
+
+class _blank_setup
+{
+    function install_pre($var)
+    {
+        // Verificaciones previas a la instalación
+        return true;
+    }
+    
+    function install_post($var)
+    {
+        // Insertar datos iniciales
+        $sql = e107::getDb();
+        
+        $data = array(
+            'blank_name' => 'Ejemplo',
+            'blank_description' => 'Contenido de ejemplo',
+            'blank_datestamp' => time()
+        );
+        
+        $sql->insert('blank', $data);
+        
+        // Configurar preferencias por defecto
+        e107::getConfig()->set('_blank_installed', time());
+        e107::getConfig()->save();
+        
+        return true;
+    }
+    
+    function upgrade($var)
+    {
+        // Lógica de actualización
+        $from_version = $var['plugin_version'];
+        $to_version = $var['plugin_new_version'];
+        
+        if(version_compare($from_version, '1.1', '<'))
+        {
+            // Actualizar a versión 1.1
+            // Añadir nuevas columnas, migrar datos, etc.
+        }
+        
+        return true;
+    }
+    
+    function uninstall($var)
+    {
+        // Limpiar configuraciones
+        e107::getConfig()->remove('_blank_installed');
+        e107::getConfig()->save();
+        
+        return true;
+    }
+}
+?>
+```
+
+### 🔌 e_admin.php - Extensiones de Administración
+**Función:** Extiende la funcionalidad del panel de administración.
+
+**Implementación:**
+```php
+<?php
+if (!defined('e107_INIT')) { exit; }
+
+class _blank_admin implements e_admin_addon_interface
+{
+    function load($field, $current_value, $attributes)
+    {
+        // Cargar valores personalizados para campos
+        switch($field)
+        {
+            case 'blank_custom_field':
+                return array(
+                    'option1' => 'Opción 1',
+                    'option2' => 'Opción 2',
+                    'option3' => 'Opción 3'
+                );
+                break;
+        }
+        
+        return $current_value;
+    }
+    
+    function config($field, $current_value, $attributes)
+    {
+        // Configurar parámetros de campos
+        switch($field)
+        {
+            case 'blank_date_field':
+                return array(
+                    'type' => 'datepicker',
+                    'data' => 'date',
+                    'help' => 'Selecciona una fecha'
+                );
+                break;
+        }
+        
+        return array();
+    }
+}
+?>
+```
+
+### 🔗 e_shortcode.php - Shortcodes Personalizados
+**Función:** Define shortcodes que pueden usarse en contenido, plantillas y menús.
+
+**Mejores Prácticas:**
+- Usar nombres descriptivos con prefijo del plugin
+- Validar parámetros de entrada
+- Manejar errores graciosamente
+- Documentar cada shortcode
+
+**Ejemplo Avanzado:**
+```php
+<?php
+if (!defined('e107_INIT')) { exit; }
+
+class _blank_shortcodes extends e_shortcode
+{
+    /**
+     * Shortcode básico que retorna "Hello World!"
+     * Uso: {_BLANK_CUSTOM}
+     */
+    function sc__blank_custom($parm = '')
+    {
+        return "Hello World!";
+    }
+    
+    /**
+     * Shortcode con parámetros
+     * Uso: {_BLANK_USER: name=Juan&age=25}
+     */
+    function sc__blank_user($parm = '')
+    {
+        $defaults = array(
+            'name' => 'Usuario',
+            'age' => '0'
+        );
+        
+        $parms = array_merge($defaults, $parm);
+        
+        return "Hola {$parms['name']}, tienes {$parms['age']} años.";
+    }
+    
+    /**
+     * Shortcode que accede a la base de datos
+     * Uso: {_BLANK_LIST: limit=5&order=date}
+     */
+    function sc__blank_list($parm = '')
+    {
+        $sql = e107::getDb();
+        $tp = e107::getParser();
+        
+        $limit = (int) vartrue($parm['limit'], 10);
+        $order = vartrue($parm['order'], 'blank_id');
+        
+        $output = "<ul class='blank-list'>";
+        
+        if($sql->select('blank', '*', "ORDER BY {$order} DESC LIMIT {$limit}"))
+        {
+            while($row = $sql->fetch())
+            {
+                $name = $tp->toHTML($row['blank_name']);
+                $output .= "<li>{$name}</li>";
+            }
+        }
+        
+        $output .= "</ul>";
+        
+        return $output;
+    }
+}
+?>
+```
 
 ---
 
